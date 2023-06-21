@@ -38,12 +38,13 @@ public class NetworkManager {
         return results
     }
     
-    private func generateURL() throws-> URL? {
+    private func generateURL(withParams params: (Sections,Periods)) throws-> URL? {
         var url = "http://api.nytimes.com/svc/mostpopular/v2/"
-        url += "\(newsCategory)/"
+        url += "\(params.0.rawValue)/"
         url += "\(newsSection)/"
-        url += "\(newsPeriod)"
+        url += "\(params.1.rawValue)"
         url += ".json"
+        print("####",url)
         let queryItems = [URLQueryItem(name: "api-key", value: "\(apiKey)")]
         guard var urlComps = URLComponents(string: url) else {
             throw NetworkManagerError.invalidURLComps}
@@ -51,9 +52,9 @@ public class NetworkManager {
         return urlComps.url
     }
 
-    func loadLandingPageData()async -> Swift.Result<NewsModel, NetworkManagerError> {
+    func loadLandingPageData(withParams params: (Sections,Periods))async -> Swift.Result<NewsModel, NetworkManagerError> {
         do {
-            let landingPageData: NewsModel = try await loadData(fromUrl: generateURL())
+            let landingPageData: NewsModel = try await loadData(fromUrl: generateURL(withParams: params))
             return .success(landingPageData)
         } catch {
             return .failure(.unknown)

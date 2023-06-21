@@ -9,7 +9,7 @@ import UIKit
 enum Section: CaseIterable {
     case mostViewed
 }
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIAdaptivePresentationControllerDelegate {
     var viewModel: ViewModel?
     var networkManager: NetworkManager?
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -28,8 +28,19 @@ class ViewController: UIViewController {
         viewModel?.loadData()
         // Do any additional setup after loading the view.
     }
+    private func presentFilters() {
+        guard let filterVC = FilterVC.instance() else {
+            return
+        }
+        filterVC.existingParams = viewModel?.currentParams
+        filterVC.delegate = self
+        let nav = UINavigationController(rootViewController: filterVC)
+        nav.modalPresentationStyle = .pageSheet
+        present(nav, animated: true, completion: nil)
+    }
     
     @IBAction func filterBtnTapped(_ sender: Any) {
+        presentFilters()
     }
 }
 
@@ -81,6 +92,7 @@ extension ViewController: UICollectionViewDelegate {
 extension ViewController:ViewModelDelegate{
     func updateCollection() {
         DispatchQueue.main.async {
+            self.collectionView.isHidden = false
             self.reloadCollectionView()
         }
     }
@@ -93,6 +105,7 @@ extension ViewController:ViewModelDelegate{
     }
     func showLoader() {
         DispatchQueue.main.async {
+            self.collectionView.isHidden = true
             self.activityIndicator.isHidden = false
             self.activityIndicator.startAnimating()
         }
@@ -105,3 +118,15 @@ extension ViewController:ViewModelDelegate{
     }
 }
 
+extension ViewController: FilterVCDelegate{
+    func filterVCDidCancel() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func filterVCDidChange(params: (Sections, Periods)) {
+        viewModel?.loadData(withParams: params)
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+}

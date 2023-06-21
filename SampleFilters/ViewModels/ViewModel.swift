@@ -14,16 +14,17 @@ protocol ViewModelDelegate{
     func onError(_ error: NetworkManagerError)
 }
 class ViewModel {
-    
+    var currentParams: (Sections,Periods) = (Sections.mostEmailed,Periods.oneDay)
     public var delegate: ViewModelDelegate?
     private var networkManger: NetworkManager
     var landingData: NewsModel? = NewsModel()
     init(networkManger: NetworkManager) {
         self.networkManger = networkManger
     }
-    public func loadData() {
+    public func loadData(withParams params: (Sections,Periods) = (Sections.mostEmailed,Periods.oneDay)) {
+        currentParams = params
         Task {
-            await fetchLandingData()
+            await fetchLandingData(withParams: currentParams)
         }
     }
     
@@ -32,9 +33,9 @@ class ViewModel {
     private var cellViewModelsForSquareLayout: [ArticleCellModel] = [ArticleCellModel]()
 
     
-    private func fetchLandingData() async {
+    private func fetchLandingData(withParams params: (Sections,Periods)) async {
         self.delegate?.showLoader()
-        let result = await networkManger.loadLandingPageData()
+        let result = await networkManger.loadLandingPageData(withParams: params)
         self.delegate?.hideLoader()
         switch result {
         case .failure(let error):
