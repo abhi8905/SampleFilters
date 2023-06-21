@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SFUIText-Regular.otf">
+            <string>SFUIText-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ArticleCell" id="rs8-hA-GH2" customClass="ArticleCell" customModule="SampleFilters" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="339" height="94"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ITM-B5-XHI">
+                <rect key="frame" x="0.0" y="0.0" width="339" height="94"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="NKg-sb-MCW">
+                        <rect key="frame" x="82" y="5.0000000000000036" width="221" height="60.333333333333343"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="........................................................................" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DcE-ZW-tqj">
+                                <rect key="frame" x="0.0" y="0.0" width="221" height="15.333333333333334"/>
+                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI  Text" pointSize="13"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="............." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eio-Hf-5Gt">
+                                <rect key="frame" x="0.0" y="23.333333333333332" width="221" height="13.999999999999996"/>
+                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI  Text" pointSize="12"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lHU-Wz-6Ss">
+                                <rect key="frame" x="0.0" y="45.333333333333336" width="221" height="15"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..............." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L7e-9q-lOe">
+                                        <rect key="frame" x="0.0" y="0.0" width="105.66666666666667" height="15"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI  Text" pointSize="12"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="e0K-HZ-XlC">
+                                        <rect key="frame" x="115.66666666666666" y="0.0" width="105.33333333333334" height="15"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar.badge.exclamationmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="bX7-h2-mjb">
+                                                <rect key="frame" x="0.0" y="1.6666666666666661" width="16.333333333333332" height="13.666666666666668"/>
+                                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="15" id="Mwm-hH-63n"/>
+                                                    <constraint firstAttribute="height" constant="15" id="OxY-jH-NVO"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="............." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p1J-P5-cDg">
+                                                <rect key="frame" x="20" y="0.0" width="85.333333333333329" height="15"/>
+                                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI  Text" pointSize="12"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                    </stackView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="questionmark.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="xOV-3r-WoP">
+                        <rect key="frame" x="12" y="18" width="60" height="58.666666666666671"/>
+                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="7TJ-Dt-KWJ"/>
+                            <constraint firstAttribute="height" constant="60" id="7qB-K5-4wr"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="xOV-3r-WoP" firstAttribute="leading" secondItem="ITM-B5-XHI" secondAttribute="leading" constant="12" id="1XB-dE-e4b"/>
+                    <constraint firstItem="NKg-sb-MCW" firstAttribute="leading" secondItem="xOV-3r-WoP" secondAttribute="trailing" constant="10" id="EIE-ck-AOP"/>
+                    <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="NKg-sb-MCW" secondAttribute="bottom" constant="5" id="TBb-jU-o1n"/>
+                    <constraint firstItem="xOV-3r-WoP" firstAttribute="centerY" secondItem="ITM-B5-XHI" secondAttribute="centerY" id="W7p-i4-9zJ"/>
+                    <constraint firstItem="NKg-sb-MCW" firstAttribute="top" secondItem="ITM-B5-XHI" secondAttribute="top" constant="5" id="kAk-Eg-PsT"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="NKg-sb-MCW" secondAttribute="trailing" constant="20" id="lGr-NW-qpD"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <size key="customSize" width="339" height="94"/>
+            <connections>
+                <outlet property="authorLabel" destination="eio-Hf-5Gt" id="d7H-FU-jg9"/>
+                <outlet property="categoryLabel" destination="L7e-9q-lOe" id="aQE-Tg-ebP"/>
+                <outlet property="imageIcon" destination="xOV-3r-WoP" id="CGe-Zh-ImF"/>
+                <outlet property="publishedDateLabel" destination="p1J-P5-cDg" id="age-gb-DHd"/>
+                <outlet property="titleLabel" destination="DcE-ZW-tqj" id="6r9-mp-XlH"/>
+            </connections>
+            <point key="canvasLocation" x="-222.13740458015266" y="-21.83098591549296"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="calendar.badge.exclamationmark" catalog="system" width="128" height="108"/>
+        <image name="questionmark.circle" catalog="system" width="128" height="123"/>
+    </resources>
+</document>
