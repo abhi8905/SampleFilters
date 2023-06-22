@@ -44,7 +44,6 @@ public class NetworkManager {
         url += "\(newsSection)/"
         url += "\(params.1.rawValue)"
         url += ".json"
-        print("####",url)
         let queryItems = [URLQueryItem(name: "api-key", value: "\(apiKey)")]
         guard var urlComps = URLComponents(string: url) else {
             throw NetworkManagerError.invalidURLComps}

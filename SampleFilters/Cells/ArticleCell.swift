@@ -19,8 +19,8 @@ class ArticleCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        imageIcon.clipsToBounds = true;
-        imageIcon.layer.cornerRadius = 30;
+        imageIcon.clipsToBounds = true
+        imageIcon.layer.cornerRadius = 30
     }
     
 
