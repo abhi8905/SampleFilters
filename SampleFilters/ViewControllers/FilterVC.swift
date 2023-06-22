@@ -35,6 +35,7 @@ class FilterVC: UIViewController,UIAdaptivePresentationControllerDelegate {
     @IBOutlet weak var oneMonthBtn: UIButton!
     @IBOutlet weak var oneWeekBtn: UIButton!
     @IBOutlet weak var oneDayBtn: UIButton!
+
     var existingParams: (Sections,Periods)?
     var sectionFilter: Sections = .mostEmailed {
         didSet {
@@ -67,7 +68,31 @@ class FilterVC: UIViewController,UIAdaptivePresentationControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.presentationController?.delegate = self
+        setUpFilters()
         // Do any additional setup after loading the view.
+    }
+    func setUpFilters(){
+        let categoryBtnArray = [mostSharedBtn,mostViewedBtn,mostEmailedBtn]
+        let periodBtnArray = [oneMonthBtn,oneWeekBtn,oneDayBtn]
+        guard let sectionFilter = existingParams?.0,let periodFilter = existingParams?.1 else {
+            return
+        }
+        switch sectionFilter{
+        case .mostViewed:
+            set(button: mostViewedBtn, selectionFrom: categoryBtnArray)
+        case .mostShared:
+            set(button: mostSharedBtn, selectionFrom: categoryBtnArray)
+        case .mostEmailed:
+            set(button: mostEmailedBtn, selectionFrom: categoryBtnArray)
+        }
+        switch periodFilter{
+        case .oneMonth:
+            set(button: oneMonthBtn, selectionFrom: periodBtnArray)
+        case .oneWeek:
+            set(button: oneWeekBtn, selectionFrom: periodBtnArray)
+        case .oneDay:
+            set(button: oneDayBtn, selectionFrom: periodBtnArray)
+        }
     }
     
     override func viewWillLayoutSubviews() {
@@ -78,8 +103,8 @@ class FilterVC: UIViewController,UIAdaptivePresentationControllerDelegate {
     }
     
     @IBAction func sectionsFilterTapped(_ sender: UIButton) {
-        let btnArray = [mostSharedBtn,mostViewedBtn,mostEmailedBtn]
-        set(button: sender, selectionFrom: btnArray)
+        let categoryBtnArray = [mostSharedBtn,mostViewedBtn,mostEmailedBtn]
+        set(button: sender, selectionFrom: categoryBtnArray)
         switch sender.tag {
         case 1:
             // Change to Most Emailed
@@ -97,8 +122,8 @@ class FilterVC: UIViewController,UIAdaptivePresentationControllerDelegate {
     }
     
     @IBAction func periodsFilterTapped(_ sender: UIButton) {
-        let btnArray = [oneMonthBtn,oneWeekBtn,oneDayBtn]
-        set(button: sender, selectionFrom: btnArray)
+        let periodBtnArray = [oneMonthBtn,oneWeekBtn,oneDayBtn]
+        set(button: sender, selectionFrom: periodBtnArray)
         switch sender.tag {
         case 1:
             // Change to One Day
@@ -157,11 +182,7 @@ class FilterVC: UIViewController,UIAdaptivePresentationControllerDelegate {
 
     
     func confirmCancel() {
-        // Present a UIAlertController as an action sheet to have the user confirm losing any
-        // recent changes.
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        
-        // Only ask if the user wants to save if they attempt to pull to dismiss, not if they tap Cancel.
         if paramsDidChange {
             alert.addAction(UIAlertAction(title: "Save", style: .default) { [weak self] _ in
                 guard let self = self else{
@@ -170,16 +191,10 @@ class FilterVC: UIViewController,UIAdaptivePresentationControllerDelegate {
                 self.delegate?.filterVCDidChange(params: (self.sectionFilter,self.periodFilter))
             })
         }
-        
         alert.addAction(UIAlertAction(title: "Discard Changes", style: .destructive) { _ in
             self.delegate?.filterVCDidCancel()
         })
-        
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        
-        // If presenting the alert controller as a popover, point the popover at the Cancel button.
-//        alert.popoverPresentationController?.barButtonItem = cancelBtn
-        
         present(alert, animated: true, completion: nil)
     }
     /*

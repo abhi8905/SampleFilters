@@ -26,10 +26,26 @@ class ArticleCell: UICollectionViewCell {
 
     
     func configureCell(model: ArticleCellModel) {
-        titleLabel.text = model.titleText
-        authorLabel.text =   model.authorText
-        publishedDateLabel.text = model.publishedDateText
-        categoryLabel.text = model.categoryText
+        if let text = model.titleText, text != "" {
+            titleLabel.text = model.titleText
+        }else{
+            titleLabel.text = "....."
+        }
+        if let text = model.authorText, text != "" {
+            authorLabel.text = model.authorText
+        }else{
+            authorLabel.text = "....."
+        }
+        if let text = model.publishedDateText, text != "" {
+            publishedDateLabel.text = model.publishedDateText
+        }else{
+            publishedDateLabel.text = "....."
+        }
+        if let text = model.categoryText, text != "" {
+            categoryLabel.text = model.categoryText
+        }else{
+            categoryLabel.text = "....."
+        }
         if let imageURL = model.imageUrl{
             imageIcon.imageFromServerURL(urlString: imageURL)
         }

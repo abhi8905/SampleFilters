@@ -18,7 +18,6 @@ class ViewController: UIViewController, UIAdaptivePresentationControllerDelegate
     var reuseIdentifier = "ArticleCell"
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.title = "Hello"
         networkManager = NetworkManager()
         viewModel = ViewModel(networkManger: networkManager!)
         self.collectionView.registerNib(ArticleCell.self)
@@ -33,6 +32,14 @@ class ViewController: UIViewController, UIAdaptivePresentationControllerDelegate
             return
         }
         filterVC.existingParams = viewModel?.currentParams
+        guard let sectionFilter = viewModel?.currentParams.0 else {
+            return
+        }
+        guard let periodFilter = viewModel?.currentParams.1 else {
+            return
+        }
+        filterVC.periodFilter = periodFilter
+        filterVC.sectionFilter = sectionFilter
         filterVC.delegate = self
         let nav = UINavigationController(rootViewController: filterVC)
         nav.modalPresentationStyle = .pageSheet
@@ -86,7 +93,10 @@ extension ViewController {
 }
 extension ViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Heekjkhj")
+        if let detailVC = DetailViewController.instance(), let detailData = viewModel?.getDetailPageData(forIndex: indexPath.row){
+            detailVC.setUpDetailVC(withData: detailData)
+            self.navigationController?.pushViewController(detailVC, animated: false)
+        }
     }
 }
 extension ViewController:ViewModelDelegate{

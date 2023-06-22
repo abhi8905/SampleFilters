@@ -46,7 +46,13 @@ class ViewModel {
         }
     }
     
-
+    func getDetailPageData(forIndex index: Int) -> DetailPageModel?{
+        guard let results = landingData?.results,results.indices.contains(index) else {
+            return nil
+        }
+        let data = results[index]
+        return DetailPageModel(titleText: data.title, imageUrl: data.media?.first?.mediaMetadata?.last?.url, authorText: data.byline, categoryText: data.subsection, descriptionText: data.abstract, publishedDate: data.publishedDate)
+    }
 
     func getArticleCellModels() -> [ArticleCellModel] {
         var articleCellModels = [ArticleCellModel]()
