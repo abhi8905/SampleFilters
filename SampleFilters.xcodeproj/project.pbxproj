@@ -29,6 +29,11 @@
 		E297628A2A43403E007DD8C2 /* DetailPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29762892A43403E007DD8C2 /* DetailPageModel.swift */; };
 		E297628C2A434225007DD8C2 /* ViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E297628B2A434225007DD8C2 /* ViewModelTests.swift */; };
 		E297628F2A4342C0007DD8C2 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E297628E2A4342C0007DD8C2 /* XCTest.framework */; platformFilter = ios; };
+		E29762912A441F71007DD8C2 /* ArticleCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29762902A441F71007DD8C2 /* ArticleCellTests.swift */; };
+		E29762932A441FBB007DD8C2 /* DetailPageModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29762922A441FBB007DD8C2 /* DetailPageModelTests.swift */; };
+		E29762952A442108007DD8C2 /* DetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29762942A442108007DD8C2 /* DetailViewControllerTests.swift */; };
+		E29762972A442151007DD8C2 /* ArticleCellModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29762962A442151007DD8C2 /* ArticleCellModelTests.swift */; };
+		E29762992A44222C007DD8C2 /* FilterVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29762982A44222C007DD8C2 /* FilterVCTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +80,11 @@
 		E29762892A43403E007DD8C2 /* DetailPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPageModel.swift; sourceTree = "<group>"; };
 		E297628B2A434225007DD8C2 /* ViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTests.swift; sourceTree = "<group>"; };
 		E297628E2A4342C0007DD8C2 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		E29762902A441F71007DD8C2 /* ArticleCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCellTests.swift; sourceTree = "<group>"; };
+		E29762922A441FBB007DD8C2 /* DetailPageModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPageModelTests.swift; sourceTree = "<group>"; };
+		E29762942A442108007DD8C2 /* DetailViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewControllerTests.swift; sourceTree = "<group>"; };
+		E29762962A442151007DD8C2 /* ArticleCellModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCellModelTests.swift; sourceTree = "<group>"; };
+		E29762982A44222C007DD8C2 /* FilterVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterVCTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +158,11 @@
 			children = (
 				E29762562A4217D3007DD8C2 /* SampleFiltersTests.swift */,
 				E297628B2A434225007DD8C2 /* ViewModelTests.swift */,
+				E29762902A441F71007DD8C2 /* ArticleCellTests.swift */,
+				E29762922A441FBB007DD8C2 /* DetailPageModelTests.swift */,
+				E29762942A442108007DD8C2 /* DetailViewControllerTests.swift */,
+				E29762962A442151007DD8C2 /* ArticleCellModelTests.swift */,
+				E29762982A44222C007DD8C2 /* FilterVCTests.swift */,
 			);
 			path = SampleFiltersTests;
 			sourceTree = "<group>";
@@ -376,6 +391,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E297628C2A434225007DD8C2 /* ViewModelTests.swift in Sources */,
+				E29762952A442108007DD8C2 /* DetailViewControllerTests.swift in Sources */,
+				E29762972A442151007DD8C2 /* ArticleCellModelTests.swift in Sources */,
+				E29762932A441FBB007DD8C2 /* DetailPageModelTests.swift in Sources */,
+				E29762992A44222C007DD8C2 /* FilterVCTests.swift in Sources */,
+				E29762912A441F71007DD8C2 /* ArticleCellTests.swift in Sources */,
 				E29762572A4217D3007DD8C2 /* SampleFiltersTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
